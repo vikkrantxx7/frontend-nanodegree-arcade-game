@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function(x,y,speed) {
+const Enemy = function(x,y,speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -33,7 +33,7 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var Hero = function(){
+const Hero = function(){
     this.victory = false;
     this.blockWidth = 101;
     this.blockHeight = 83;
@@ -44,10 +44,12 @@ var Hero = function(){
     this.sprite = 'images/char-boy.png';
 }
 
+//render the player on canvas
 Hero.prototype.render = function(){
     ctx.drawImage(Resources.get(this.sprite),this.x,this.y);
 }
 
+//control the player using arrow keys
 Hero.prototype.handleInput = function(input){
     switch(input){
         case 'left':
@@ -72,6 +74,7 @@ Hero.prototype.handleInput = function(input){
     }
 }
 
+//update the player position on collision
 Hero.prototype.update = function(){
     for(let enemy of allEnemies){
         if(this.y === enemy.y && (enemy.x + enemy.blockWidth/2 > this.x && enemy.x < this.x + this.blockWidth/2)){
@@ -83,6 +86,7 @@ Hero.prototype.update = function(){
     }
 }
 
+//reset the player position
 Hero.prototype.reset = function(){
     this.x = this.startX;
     this.y = this.startY;
@@ -90,19 +94,19 @@ Hero.prototype.reset = function(){
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var player = new Hero();
-var enemy1 = new Enemy(-101,0,250);
-var enemy2 = new Enemy(-101,83,200);
-var enemy3 = new Enemy((-101*2),0,300);
-var enemy4 = new Enemy(-101,166,350);
+let player = new Hero();
+let enemy1 = new Enemy(-101,0,250);
+let enemy2 = new Enemy(-101,83,200);
+let enemy3 = new Enemy((-101*2),0,300);
+let enemy4 = new Enemy(-101,166,350);
 
-var allEnemies = [];
+let allEnemies = [];
 
 allEnemies.push(enemy1,enemy2,enemy3,enemy4);
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function(e) {
-    var allowedKeys = {
+    let allowedKeys = {
         37: 'left',
         38: 'up',
         39: 'right',
