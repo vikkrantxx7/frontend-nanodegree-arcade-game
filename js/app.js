@@ -77,6 +77,9 @@ Hero.prototype.update = function(){
         if(this.y === enemy.y && (enemy.x + enemy.blockWidth/2 > this.x && enemy.x < this.x + this.blockWidth/2)){
             this.reset();
         }
+        if(this.y === 60){
+            this.victory = true;
+        }
     }
 }
 
