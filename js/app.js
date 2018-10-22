@@ -34,6 +34,7 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 var Hero = function(){
+    this.victory = false;
     this.blockWidth = 101;
     this.blockHeight = 83;
     this.startX = this.blockWidth*2;

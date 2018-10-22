@@ -1,3 +1,61 @@
 body {
     text-align: center;
 }
+
+.container {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+/*
+* Styles for congratulations popup
+*/
+.popup {
+    position: absolute;
+    height: 300px;
+    width: 60%;
+    min-width: 350px;
+    top: 100px;
+    left:auto;
+    right:auto;
+    border-radius: 10px;
+    z-index: 1;
+    box-shadow: 0 0 200px 100px rgba(0, 0, 0, 0.61);
+    padding: 2px;
+    opacity: 0;
+    display: none;
+    background-image: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.popup .popup-content {
+    font-family: "Uncial Antiqua", sans-serif;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.popup button {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    background-color: rgba(240, 248, 255, 0.315);
+    cursor: pointer;
+}
+
+/* .popup button[name="restart"] {
+    margin-left: 0;
+} */
+
+.popup .content {
+    font-family: sans-serif;
+    display: flex;
+    width: 300px;
+    margin-top: 50px;
+}

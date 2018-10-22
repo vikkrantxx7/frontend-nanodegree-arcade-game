@@ -162,6 +162,10 @@ var Engine = (function(global) {
      */
     function reset() {
         // noop
+        closePopup();
+        player.reset();
+        player.victory = false;
+        win.requestAnimationFrame(main);
     }
 
     /* Go ahead and load all of the images we know we're going to need to
@@ -182,4 +186,24 @@ var Engine = (function(global) {
      * from within their app.js files.
      */
     global.ctx = ctx;
+
+    function displayPopup(){
+        let popup = document.getElementsByClassName('popup')[0];
+        popup.style.display = 'block';
+        setTimeout(function(){
+            popup.style.opacity = 1;
+        },100);
+    }
+
+    function closePopup() {
+        let popup = document.getElementsByClassName('popup')[0];
+        popup.style.display = 'none';
+        setTimeout(function(){
+            popup.style.opacity = 0;
+        },100);
+    }
+
+    document.querySelector('button[name="restart"]').addEventListener('click', reset);
+
+
 })(this);
