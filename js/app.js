@@ -36,8 +36,10 @@ Enemy.prototype.render = function() {
 var Hero = function(){
     this.blockWidth = 101;
     this.blockHeight = 83;
-    this.x = this.blockWidth*2;
-    this.y = this.blockHeight*5 - 10;
+    this.startX = this.blockWidth*2;
+    this.startY = this.blockHeight*4 + 60;
+    this.x = this.startX;
+    this.y = this.startY;
     this.sprite = 'images/char-boy.png';
 }
 
@@ -67,6 +69,19 @@ Hero.prototype.handleInput = function(input){
                 this.y += this.blockHeight;
             }
     }
+}
+
+Hero.prototype.update = function(){
+    for(let enemy of allEnemies){
+        if(this.y === enemy.y && (enemy.x + enemy.blockWidth/2 > this.x && enemy.x < this.x + this.blockWidth/2)){
+            this.reset();
+        }
+    }
+}
+
+Hero.prototype.reset = function(){
+    this.x = this.startX;
+    this.y = this.startY;
 }
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
